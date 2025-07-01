@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - Series</title>
+</head>
+<body style="background-color: grey; color: rgb(49, 183, 255);">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(langName){
+        const li = document.createElement('li');
+        li.innerHTML = langName;
+        document.querySelector('.language').appendChild(li);
+    }
+    addLanguage("Python")
+    addLanguage("Typescript")
+
+    // This approach is optimised one from the above one
+    function addOptiLanguage(langName){
+        const li = document.createElement('li');
+        const addText = document.createTextNode(langName);
+        li.appendChild(addText);
+        const ul = document.querySelector('.language');
+        ul.appendChild(li);
+    }
+    addOptiLanguage("Java")
+    addOptiLanguage("Swift")
+
+    // Now want to edit 
+    const secondLang = document.querySelector('li:nth-child(2)');
+    // but this is not good approach
+    // secondLang.innerHTML = "Mojo";
+
+    // alternative of this is below
+    const newLi = document.createElement('li');
+    newLi.textContent = "Mojo";
+    secondLang.replaceWith(newLi);
+
+    // edit
+    // outerHTML replaces the whole element but innerHTML replaces only inner HTML not the whole element
+    const firstLang = document.querySelector('li:first-child');
+    firstLang.outerHTML = "<li><b>Golang</b></li>"
+
+    // remove
+    const lastLang = document.querySelector("li:last-child");
+    lastLang.remove();
+</script>
+</html>

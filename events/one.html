@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events In JavaScript - Basics</title>
+</head>
+
+<body style="background-color: gray; color: lightseagreen;">
+    <h2>Amazing image</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="photoshop"
+                    src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt="photoshop"></li>
+            <li><img width="200px" id="japan"
+                    src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="river"
+                    src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <!-- <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" onclick="alert('River')"></li> -->
+            <li><img width="200px" id="owl"
+                    src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="prayer"
+                    src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><a style="color: lightseagreen;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+    // Events trigger on some activity like clicking,key press and etc
+
+    // In old days we use attachEvent()
+    // jQuery -> onEventListener()
+
+    // What to read extra.....
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+    // 1st approach is by using onclick="" in html element 
+
+    // 2nd approach is below but this approach is also not so good as it gives less features
+    // document.getElementById('owl').onclick = function(){
+    //     alert("Owl Image is Clicked!!!");
+    // }
+
+    // 3rd approach:
+    // document.getElementById('owl').addEventListener("click",function(e){
+    //     // alert("Owl Image is Clicked again.....")
+    //     console.log(e);
+
+    // },false);
+
+    //Event Propagation 
+    // if we don't write the false as it is by default false
+    // Event Bubbling -> down to up
+    // document.getElementById('images').addEventListener("click",function(e){
+    //     console.log("Clicked inside the ul");
+    // });
+
+    // document.getElementById('owl').addEventListener("click",function(e){
+    //     console.log("Clicked on owl");
+    //     e.stopPropagation();
+    // });
+
+    // Event Capturing -> top to down
+    // document.getElementById('images').addEventListener("click", function (e) {
+    //     console.log("Clicked inside the ul");
+    //     e.stopPropagation();
+    // }, true);
+
+    // document.getElementById('owl').addEventListener("click", function (e) {
+    //     console.log("Clicked on owl");
+    // }, true);
+
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault();// we stop the default behaviour of anchor tag by this
+    //     console.log("Inside Google");
+    //     e.stopPropagation();
+    // },false)
+
+
+    // document.querySelector("#images").addEventListener('click', function (e) {
+    //     console.log(e.target.parentNode);
+    //     console.log(e.target.tagName);
+
+    //     if (e.target.tagName === 'IMG') {
+    //         console.log(e.target.id);
+            
+    //         // let removeIt = e.target only removes the image
+    //         let removeIt = e.target.parentNode;
+    //         removeIt.remove();
+    //     }
+
+    //     // other way of removing
+    //     // removeIt.parentNode.removeChild(removeIt);
+
+    // }, false)
+
+    // Types of Events:
+
+</script>
+
+</html>

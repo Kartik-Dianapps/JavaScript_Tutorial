@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-Series(Creation of new element)</title>
+</head>
+<body style="background-color: grey; color: rgb(45, 167, 233);">
+    
+</body>
+<script>
+    // Element creation phase
+    const div = document.createElement('div');
+    console.log(div);
+
+    const p = document.createElement('p');
+    p.innerText="Hi Everyone!!!"
+    console.log(p);
+
+    // We can set attributes by two methods:
+    // method1
+    div.id = "myId";
+    div.className = "bgc-black"
+    
+    // method2 and by this we can set custom attributes also
+    // div.setAttribute('id',"myId");
+    // div.setAttribute('class',"bgc-black");
+    div.setAttribute('title','generatedTitle');
+    div.style.backgroundColor = "green";
+    div.style.padding = "12px";
+
+    // div.innerText = "This is New Element Creation in DOM!!!"
+    // Alternative of above line is this 
+    const textNode = document.createTextNode("This New Element Creation In DOM !!!")
+    div.appendChild(textNode)
+
+    // div.appendChild(p);
+
+    // Now Element has to be attached to document object as currently it is stored in memory
+    document.body.appendChild(div);
+    // document.body.appendChild(p);
+</script>
+</html>
