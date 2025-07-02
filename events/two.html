@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Projects</title>
+</head>
+<body style="background-color: gray; color: lightseagreen;">
+    <h1>Async Projects:</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // setTimeout and setInterval fn is provided by browser not by core js
+
+    const sayMyName = function(fullName){
+        console.log(`${fullName}`);
+    }
+
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = "Async Topic Series";
+    }
+
+    // setTimeout(sayMyName,1000,"Kartik Singh Bisht");
+
+    // timerId is the reference of setTimeout which we want to clear as there can be many setTimeout
+    let timerId = setTimeout(changeText,2000);
+
+    document.getElementById('stop').addEventListener("click",function(){
+        console.log("Stop button Clicked!!!");
+        clearTimeout(timerId);
+    },false)
+</script>
+</html>
