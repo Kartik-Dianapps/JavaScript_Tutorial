@@ -2,9 +2,10 @@
 
 // How to create a promise
 const promiseOne = new Promise(function(resolve,reject){
+    // async tasks will be written here which takes some time
     setTimeout(()=>{
         console.log("Async task is completed!!!");
-        // resolve();
+        resolve();
     },1000);
 })
 
@@ -13,6 +14,7 @@ promiseOne.then(function(){
     console.log("Promise resolved!!!");
 })
 // console.log(promiseOne);
+
 
 // 2nd way to create promise
 new Promise((resolve,reject)=>{
@@ -34,6 +36,7 @@ promiseThree.then(function(res){
 })
 // console.log(promiseThree);
 
+
 // const promiseFour = new Promise(function(resolve,reject){
 //     setTimeout(function(){
 //         let error = true;
@@ -47,7 +50,12 @@ promiseThree.then(function(res){
 //         }
 //     },1000);
 // })
+
 // Promise chaining
+// Whenever you return a value from a .then() callback
+// That value is automatically wrapped into a new resolved promise.
+
+
 // and finally does not accept any parameters and it can be placed anywhere and always executed
 // what if a promise is rejected and not handled then error will be thrown and in case of resolve nothing happens
 
@@ -104,17 +112,20 @@ promiseThree.then(function(res){
 // }
 // getAllUsers();
 
-fetch('https://api.github.com/users/hiteshchoudhary')
-.then(response=>{
-    return response.json();
-})
-.then(jsonResponse=>{
-    console.log(jsonResponse);
+// fetch('https://api.github.com/users/hiteshchoudhary')
+// .then(response=>{
+//     return response.json();
+// })
+// .then(jsonResponse=>{
+//     console.log(jsonResponse);
     
-})
-.catch((err)=>{
-    console.log(err);
-})
+// })
+// .catch((err)=>{
+//     console.log(err);
+// })
+
+
+
 
 
 // let promise = new Promise(function(resolve, reject) {
@@ -123,6 +134,7 @@ fetch('https://api.github.com/users/hiteshchoudhary')
 // //   setTimeout(() => resolve("Whoops!"), 1000);
 // });
 // promise.then((res)=>{console.log(res);
-// },(e)=>{console.log(e);
-// })
+// },(e)=>{console.log(e);})
 
+// agr successfull completion ho jata hai async task ka then resolve() call hoga 
+// lekin agr koi error or reject() call ho jata hai toh promise reject ho jata hai
