@@ -15,7 +15,7 @@
 })();
 
 // we can pass arguments also
-// unamed IIFE
+// un named IIFE
 ((dbName)=>{
     console.log(`${dbName} connection is established!!!`);
 })("DB2");
