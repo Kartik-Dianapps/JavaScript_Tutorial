@@ -36,7 +36,7 @@
 
 // Error rethrowing
 // If we throw inside .catch, then the control goes to the next closest error handler.
-// execution: catch -> catch -> then -> then
+// catch -> catch -> then -> then
 new Promise((resolve, reject) => {
   throw new Error("Whoops!");
 
@@ -61,7 +61,6 @@ new Promise((resolve, reject) => {
 
 }).then(()=>{console.log("Hi")})
 .then(()=>{console.log("Hi");})
-
 
 // And if we handle the error and finish normally, then it continues to the next closest successful .then handler.
 // the execution: catch -> then
