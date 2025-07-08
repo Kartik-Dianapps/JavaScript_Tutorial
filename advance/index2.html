@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blob to base64</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let blob = new Blob(["Hello World!!!"],{type:"text"});
+
+    // Blob to base64 encoded string
+    let anchor = document.createElement("a");
+    anchor.download = "Hello.txt";
+
+    let reader = new FileReader();
+    reader.readAsDataURL(blob);//converts the blob into base64 and calls onload
+
+    reader.onload = function()
+    {
+        anchor.href = reader.result;//encoded string
+        anchor.click();
+    }
+
+</script>
+</html>

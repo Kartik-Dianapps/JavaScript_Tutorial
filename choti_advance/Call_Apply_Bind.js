@@ -30,14 +30,14 @@ let printFullname = function(hometown,state){
     console.log(this.firstname+" "+ this.lastname+" from "+hometown+","+state);
 }
 
-// printFullname.call(name,"Ranikhet","Uttrakhand");
+printFullname.call(name,"Ranikhet","Uttrakhand");
 
 let name2 = {
     firstname:"John",
     lastname:"Doe"
 }
 
-// printFullname.call(name2,"London","England");
+printFullname.call(name2,"London","England");
 
 // apply() -> same as call but arguments after reference will be in an array
 

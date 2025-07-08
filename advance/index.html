@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blob</title>
+</head>
+
+<body>
+    <!-- <a download="greet.txt" href="#" id="link">Download</a> -->
+</body>
+<script>
+
+    // Blob as url
+
+    // let blob1 = new Blob(["Hello everyone"],{type:"text"})
+    // let link = document.getElementById("link");
+    // link.setAttribute('href',URL.createObjectURL(blob1))
+
+    // to generate the dynamic download link from object
+    let link = document.createElement('a');
+    link.download = 'hello.txt';
+
+    let blob = new Blob(['Hello, world!'], { type: 'text/plain' });
+
+    link.href = URL.createObjectURL(blob);
+
+    link.click();
+
+    // deletes the mapping of url to blob
+    URL.revokeObjectURL(url);
+
+
+</script>
+
+</html>
