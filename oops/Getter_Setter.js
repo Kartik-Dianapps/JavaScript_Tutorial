@@ -14,7 +14,7 @@ class User{
     }
 
     get email(){
-        return this._email;
+        return this._email.toUpperCase();
     }
 
     set email(value)
@@ -27,5 +27,6 @@ const u1 = new User("abc@gmail.com","1234");
 console.log(u1);
 console.log(u1.passwd);
 console.log(u1.email);
+console.log(u1._email);
 
 
